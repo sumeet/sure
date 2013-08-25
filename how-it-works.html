@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sure</title>
+
+    <link rel="stylesheet" href="./assets/stylesheets/styles.css">
+    <link rel="stylesheet" href="./assets/stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Sure</h1>
+        <p>testing library for python</p>
+        <p class="view"><a href="http://github.com/gabrielfalcao/sure">View the Project on GitHub <small>gabrielfalcao/Sure</small></a></p>
+        
+        <ul>
+          <li><a href="https://github.com/gabrielfalcao/sure/archive/master.zip">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/gabrielfalcao/sure/archive/master.tar.gz">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="http://github.com/gabrielfalcao/sure">View On <strong>GitHub</strong></a></li>
+        </ul>
+        
+      </header>
+      <section><h1 id="how-sure-works" name="how-sure-works"><a href="#how-sure-works">How sure works</a></h1>
+<p>The class <code>sure.AssertionBuilder</code> creates objects capable of doing
+assertions. The AssertionBuilder simply arranges a vast set of
+possible assertions that are composed by a <code>source</code> object and a
+<code>destination</code> object.</p>
+
+<p>Every assertion, even implicitly if implicitly like in <code>(2 &lt; 3).should.be.true</code>, is doing a source/destination matching.</p>
+<h2 id="chainability" name="chainability"><a href="#chainability">Chainability</a></h2>
+<p>Some specific assertion methods are chainable, it can be useful for short assertions like:</p>
+<div class="highlight"><pre name="how-sure-works-example-1"><span class="n">PERSON</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"John"</span><span class="p">,</span>
+  <span class="s">"facebook_info"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">"token"</span><span class="p">:</span> <span class="s">"abcd"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">PERSON</span><span class="o">.</span><span class="n">should</span><span class="o">.</span><span class="n">have</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="s">"facebook_info"</span><span class="p">)</span><span class="o">.</span><span class="n">being</span><span class="o">.</span><span class="n">a</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+</pre></div><h1 id="monkey-patching" name="monkey-patching"><a href="#monkey-patching">Monkey-patching</a></h1>
+<p>Lincoln Clarete has written the module [<code>sure/magic.py</code>] which I simply added to sure. The most exciting part of the story is that Lincoln exposed the code with a super clean API, it&#39;s called <a href="http://clarete.github.io/forbiddenfruit/">forbidden fruit</a></p>
+<h2 id="why-cpython-only--" name="why-cpython-only--"><a href="#why-cpython-only--">Why CPython-only ?</a></h2>
+<p>Sure uses the <a href="http://docs.python.org/library/ctypes">ctypes</a> module
+to break in python protections against monkey patching.</p>
+
+<p>Although ctypes might also be available in other implementations such
+as <a href="http://www.jython.org/">Jython</a>, only the CPython provide
+<a href="http://docs.python.org/library/ctypes#loading-shared-libraries"><code>ctypes.pythonapi</code></a>
+the features required by sure.</p>
+
+        <hr />
+        <h3>Table of contents</h3>
+        
+        <p style="margin:0"><a class="toc" href="./getting-started.html">getting-started.md</a></p>
+        
+        <p style="margin:0"><a class="toc" href="./how-it-works.html">how-it-works.md</a></p>
+        
+        <p style="margin:0"><a class="toc" href="./intro.html">intro.md</a></p>
+        
+        <p style="margin:0"><a class="toc" href="./reference.html">reference.md</a></p>
+        
+
+      </section>
+
+    </div>
+    <footer>
+      <p>Project maintained by <a href="http://github.com/gabrielfalcao">gabrielfalcao</a></p>
+      <p>Project generated with <a href="http://octomarks.io/gabrielfalcao/markment">markment</a></p>
+    </footer>
+    <script src="./assets/javascripts/scale.fix.js"></script>
+  </body>
+</html>

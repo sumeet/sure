@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sure</title>
+
+    <link rel="stylesheet" href="./assets/stylesheets/styles.css">
+    <link rel="stylesheet" href="./assets/stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Sure</h1>
+        <p>testing library for python</p>
+        <p class="view"><a href="http://github.com/gabrielfalcao/sure">View the Project on GitHub <small>gabrielfalcao/Sure</small></a></p>
+        
+        <ul>
+          <li><a href="https://github.com/gabrielfalcao/sure/archive/master.zip">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/gabrielfalcao/sure/archive/master.tar.gz">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="http://github.com/gabrielfalcao/sure">View On <strong>GitHub</strong></a></li>
+        </ul>
+        
+      </header>
+      <section><h1 id="getting-started" name="getting-started"><a href="#getting-started">Getting Started</a></h1><h2 id="installing" name="installing"><a href="#installing">Installing</a></h2>
+<p>It is available in PyPi, so you can install through pip:</p>
+<div class="highlight"><pre name="getting-started-example-1">pip install sure
+</pre></div><h2 id="activating" name="activating"><a href="#activating">Activating</a></h2>
+<p>Sure is activated upon importing it, unless the environment variable
+<code>SURE_DISABLE_NEW_SYNTAX</code> is set to any non-falsy value. (You could
+just use <code>true</code>)</p>
+
+<p>For test code cleaningness it&#39;s recommended to import sure only once in the <code>__init__.py</code> of your root test package.</p>
+
+<p>Here is an example:</p>
+<div class="highlight"><pre name="getting-started-example-2">mymodule.py
+tests/
+tests/__init__.py  <span class="c"># this is our guy</span>
+tests/unit/__init__.py
+tests/unit/test_mymodule_unit1.py
+tests/functional/__init__.py
+tests/functional/test_mymodule_functionality.py
+</pre></div>
+<p>That is unless, of course, you want to explicitly import the assertion
+helpers from sure in every module.</p>
+<h1 id="python-version-compatibility" name="python-version-compatibility"><a href="#python-version-compatibility">Python version compatibility</a></h1>
+<p>Sure is
+<a href="https://travis-ci.org/gabrielfalcao/sure/">continuously tested against</a>
+python versions 2.6, 2.7 and 3.3, but its assertion API is most likely
+to work anywhere. The only real big difference of sure in cpython and
+even other implementations such as <a href="http://pypy.org/">PyPy</a> is that
+the <a href="how-it-works.md#monkey-patching">monkey-patching</a> only happens in
+CPython.</p>
+
+<p>You can always get around beautifully with <code>expect</code>:</p>
+<div class="highlight"><pre name="python-version-compatibility-example-1"><span class="kn">from</span> <span class="nn">sure</span> <span class="kn">import</span> <span class="n">expect</span>
+
+<span class="n">expect</span><span class="p">(</span><span class="s">"this"</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"is"</span><span class="p">,</span> <span class="s">"at"</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="s">"that"</span><span class="p">)</span>
+</pre></div>
+<p>where in cpython you could do:</p>
+<div class="highlight"><pre name="python-version-compatibility-example-2"><span class="s">"this"</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"is"</span><span class="p">,</span> <span class="s">"at"</span><span class="p">)</span><span class="o">.</span><span class="n">should</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="s">"that"</span><span class="p">)</span>
+</pre></div><h1 id="disabling-the-monkey-patching" name="disabling-the-monkey-patching"><a href="#disabling-the-monkey-patching">Disabling the monkey patching</a></h1>
+<p>Just export the <code>SURE_DISABLE_NEW_SYNTAX</code> environment variable before
+running your tests.</p>
+<div class="highlight"><pre name="disabling-the-monkey-patching-example-1"><span class="go">export SURE_DISABLE_NEW_SYNTAX=true</span>
+</pre></div>
+        <hr />
+        <h3>Table of contents</h3>
+        
+        <p style="margin:0"><a class="toc" href="./getting-started.html">getting-started.md</a></p>
+        
+        <p style="margin:0"><a class="toc" href="./how-it-works.html">how-it-works.md</a></p>
+        
+        <p style="margin:0"><a class="toc" href="./intro.html">intro.md</a></p>
+        
+        <p style="margin:0"><a class="toc" href="./reference.html">reference.md</a></p>
+        
+
+      </section>
+
+    </div>
+    <footer>
+      <p>Project maintained by <a href="http://github.com/gabrielfalcao">gabrielfalcao</a></p>
+      <p>Project generated with <a href="http://octomarks.io/gabrielfalcao/markment">markment</a></p>
+    </footer>
+    <script src="./assets/javascripts/scale.fix.js"></script>
+  </body>
+</html>
